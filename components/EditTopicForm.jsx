@@ -16,7 +16,7 @@ import { useToast } from "@chakra-ui/react";
 export default function EditTopicForm({ id, title, description }) {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
-  const url = process.env.API_URL
+  const url = process.env.NEXT_PUBLIC_API_URL
   const router = useRouter();
   const toast = useToast()
   const handleSubmit = async (e) => {

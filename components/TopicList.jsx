@@ -6,7 +6,7 @@ import { EditIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 
 const getTopics = async () => {
-  const url = process.env.API_URL
+  const url = process.env.NEXT_PUBLIC_API_URL
   try {
     console.log("URL",  url)
     const res = await fetch(`${url}/api/topics`, {

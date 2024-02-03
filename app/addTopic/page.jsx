@@ -18,7 +18,7 @@ export default function AddTopic() {
   const [description, setDescription] = useState("");
   const toast = useToast(); 
   const router = useRouter();
-  const url = process.env.API_URL
+  const url = process.env.NEXT_PUBLIC_API_URL
   const handleSubmit = async (e) => {
 
     console.log("URL",  url)

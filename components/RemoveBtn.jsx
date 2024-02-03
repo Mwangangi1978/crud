@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function RemoveBtn({ id }) {
   const router = useRouter();
-  const url = process.env.API_URL
+  const url = process.env.NEXT_PUBLIC_API_URL
   const removeTopic = async () => {
     const confirmed = confirm("Are you sure?");
 
