@@ -11,7 +11,7 @@ export default function RemoveBtn({ id }) {
     const confirmed = confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics?id=${id}`, {
+      const res = await fetch(`${process.env.API_URL}/api/topics?id=${id}`, {
         method: "DELETE",
       });
 
