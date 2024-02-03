@@ -16,14 +16,15 @@ import { useToast } from "@chakra-ui/react";
 export default function EditTopicForm({ id, title, description }) {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
-
+  const url = process.env.API_URL
   const router = useRouter();
   const toast = useToast()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${process.env.API_URL}/api/topics/${id}`, {
+      console.log("URL",  url)
+      const res = await fetch(`${url}/api/topics/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",

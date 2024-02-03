@@ -18,17 +18,19 @@ export default function AddTopic() {
   const [description, setDescription] = useState("");
   const toast = useToast(); 
   const router = useRouter();
-
+  const url = process.env.API_URL
   const handleSubmit = async (e) => {
+
+    console.log("URL",  url)
     e.preventDefault();
 
     if (!title || !description) {
       alert("Title and description are required.");
       return;
     }
-
+    
     try {
-      const res = await fetch(`${process.env.API_URL}/api/topics`, {
+      const res = await fetch(`${url}/api/topics`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

@@ -6,8 +6,10 @@ import { EditIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 
 const getTopics = async () => {
+  const url = process.env.API_URL
   try {
-    const res = await fetch(`${process.env.API_URL}/api/topics`, {
+    console.log("URL",  url)
+    const res = await fetch(`${url}/api/topics`, {
       cache: "no-store",
     });
     
