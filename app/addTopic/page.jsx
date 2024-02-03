@@ -7,10 +7,11 @@ import {
   Button,
   Heading,
   FormControl,
-  FormLabel
+  FormLabel,
+  Textarea
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
-import Navbar from "@/components/NavBar";
+import Navbar from "./../../components/NavBar";
 
 export default function AddTopic() {
   const [title, setTitle] = useState("");
@@ -27,7 +28,7 @@ export default function AddTopic() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/topics", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -89,23 +90,20 @@ export default function AddTopic() {
           value={title}
           border="1px"
           borderColor="slate.500"
-          px={8}
-          py={2}
           placeholder="Topic Title"
 
           name="title"
           type="text"
           />
         </FormControl>
-        <FormControl id="password" mt={4} marginBottom={"10px"}>
+        <FormControl id="description" mt={4} marginBottom={"10px"}>
             <FormLabel textAlign={"center"}>Description</FormLabel>
-            <Input
+            <Textarea
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
                 border="1px"
+                name="description"
                 borderColor="slate.500"
-                px={8}
-                py={2}
                 placeholder="Topic Description"
             />
         </FormControl>

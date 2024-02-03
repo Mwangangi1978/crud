@@ -23,7 +23,7 @@ const Navbar = () => {
           _hover={{ textDecor: "none", color: "white" }}
           transition="color 0.3s"  
         >
-          MwangangiCoding.
+          Mwangangi MONGO+DB.
         </ChakraLink>
       </NextLink>
       <NextLink href="/addTopic">

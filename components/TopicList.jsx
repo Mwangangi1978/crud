@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 
 const getTopics = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/topics", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics`, {
       cache: "no-store",
     });
+    
 
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
@@ -41,12 +42,14 @@ const TopicsList = () => {
           p={4}
           borderWidth="1px"
           borderColor="slate.300"
-          my={3}
           display="flex"
           justifyContent="space-between"
           alignItems="flex-start"
           borderRadius="md"
           boxShadow="md"
+          width={'97vw'}
+          margin={'auto'}
+          my={3}
         >
           <Box>
             <Heading fontSize="2xl" fontWeight="bold">
@@ -56,9 +59,9 @@ const TopicsList = () => {
           </Box>
 
           <Flex gap={2}>
-            <RemoveBtn id={t._id} />
+            <RemoveBtn id={t._id} boxSize={1}/>
             <ChakraLink href={`/editTopic/${t._id}`}>
-              <EditIcon boxSize={6} />
+              <EditIcon boxSize={10} />
             </ChakraLink>
           </Flex>
         </Box>

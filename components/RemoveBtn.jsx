@@ -11,11 +11,18 @@ export default function RemoveBtn({ id }) {
     const confirmed = confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics?id=${id}`, {
         method: "DELETE",
       });
 
       if (res.ok) {
+        toast({
+          title: "Success",
+          description: "Topic deleted successfully!",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
         router.refresh();
       }
     }
