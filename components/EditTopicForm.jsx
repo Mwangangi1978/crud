@@ -7,6 +7,7 @@ import {
   Input,
   Button,
 } from "@chakra-ui/react";
+import Navbar from "./NavBar";
 
 export default function EditTopicForm({ id, title, description }) {
   const [newTitle, setNewTitle] = useState(title);
@@ -38,6 +39,8 @@ export default function EditTopicForm({ id, title, description }) {
   };
 
   return (
+    <>
+    <Navbar/>
     <Box as="form" onSubmit={handleSubmit} display="flex" flexDirection="column" gap={3}>
       <Input
         onChange={(e) => setNewTitle(e.target.value)}
@@ -72,5 +75,6 @@ export default function EditTopicForm({ id, title, description }) {
         Update Topic
       </Button>
     </Box>
+    </>
   );
 }

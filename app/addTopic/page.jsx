@@ -6,8 +6,11 @@ import {
   Input,
   Button,
   Heading,
+  FormControl,
+  FormLabel
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
+import Navbar from "@/components/NavBar";
 
 export default function AddTopic() {
   const [title, setTitle] = useState("");
@@ -57,6 +60,8 @@ export default function AddTopic() {
   };
 
   return (
+    <>
+    <Navbar/>
     <Box
                 
       backgroundSize="cover"
@@ -75,8 +80,11 @@ export default function AddTopic() {
         textAlign="center"
         width={'50vw'}
       >
-        <Heading color={'teal'} marginBottom={'20px'} marginTop={'5px'}>Add a New Topic</Heading>
-        <Input
+        <Heading color={'#EFB7BA'} marginBottom={'20px'} marginTop={'5px'}>Add a New Topic</Heading>
+        
+        <FormControl id="title" marginBottom={"10px"}>
+          <FormLabel textAlign={"center"}>Topic</FormLabel>
+          <Input
           onChange={(e) => setTitle(e.target.value)}
           value={title}
           border="1px"
@@ -84,33 +92,38 @@ export default function AddTopic() {
           px={8}
           py={2}
           placeholder="Topic Title"
-          marginBottom={'10px'}
-        />
 
-        <Input
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          border="1px"
-          borderColor="slate.500"
-          px={8}
-          py={2}
-          placeholder="Topic Description"
-          marginBottom={'10px'}
-        />
+          name="title"
+          type="text"
+          />
+        </FormControl>
+        <FormControl id="password" mt={4} marginBottom={"10px"}>
+            <FormLabel textAlign={"center"}>Description</FormLabel>
+            <Input
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+                border="1px"
+                borderColor="slate.500"
+                px={8}
+                py={2}
+                placeholder="Topic Description"
+            />
+        </FormControl>
 
         <Button
           type="submit"
-          bg="green.600"
+          bg="#194F92"
           color="white"
           fontWeight="bold"
           py={3}
           px={6}
           alignSelf="flex-start"
-          _hover={{ bg: "green.700" }}
+          _hover={{ bg: "#CBD5F0" }}
         >
           Add Topic
         </Button>
       </Box>
     </Box>
+    </>
   );
 }
